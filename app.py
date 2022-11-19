@@ -6,9 +6,10 @@ from pytube import YouTube
 import os.path
 app = Flask(__name__)
 
-@app.route('/',methods=['GET','POST'])
+@app.route('/')
 def index():
-    videoid= str(request.args.get('input'))
+#     videoid= str(request.args.get('input'))
+    videoid= "hello"
     link='https://www.youtube.com/watch?v='+videoid
    
     try: 
