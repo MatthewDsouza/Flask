@@ -6,10 +6,9 @@ from pytube import YouTube
 import os.path
 app = Flask(__name__)
 
-@app.route('/index')
+@app.route('/',methods=['GET','POST'])
 def index():
-#     videoid= str(request.args.get('input'))
-    videoid= "hello"
+    videoid= str(request.args.get('input'))
     link='https://www.youtube.com/watch?v='+videoid
    
     try: 
@@ -35,7 +34,7 @@ def index():
     model = whisper.load_model("base")
     print(os.path.isfile("GoogleImagen.mp4"))
     result = model.transcribe("GoogleImagen.mp4")
-    data_set= {'videoid':videoid}
+    data_set= {'videoid':videoid,'txt':result['text']}
     json_dump=json.dumps(data_set)
     print(result['text'])
         #  try:
