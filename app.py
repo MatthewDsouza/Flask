@@ -34,7 +34,7 @@ def index():
     model = whisper.load_model("base")
     print(os.path.isfile("GoogleImagen.mp4"))
     result = model.transcribe("GoogleImagen.mp4")
-    data_set= {'videoid':videoid,'txt':result['text']}
+    data_set= {'videoid':videoid}
     json_dump=json.dumps(data_set)
     print(result['text'])
         #  try:
